@@ -16,6 +16,7 @@
     "semanticCommitType": "chore",
     "packageRules": [
       {
+        "separateMinorPatch": true,
         "depTypeList": [
           "devDependencies"
         ],
