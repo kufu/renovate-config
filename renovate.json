@@ -3,7 +3,8 @@
     ":timezone(Asia/Tokyo)",
     "group:monorepos",
     "packages:stylelint",
-    ":widenPeerDependencies"
+    ":widenPeerDependencies",
+    ":label(renovate)"
   ],
   "npm": {
     "extends": [
