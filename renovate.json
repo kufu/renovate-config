@@ -15,9 +15,9 @@
     "schedule": "before 10am on Monday",
     "rangeStrategy": "bump",
     "semanticCommitType": "chore",
+    "separateMinorPatch": true,
     "packageRules": [
       {
-        "separateMinorPatch": true,
         "depTypeList": [
           "devDependencies"
         ],
