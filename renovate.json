@@ -46,6 +46,10 @@
         "packagePatterns": [
           "^reg-"
         ]
+      },
+      {
+        "packageNames": ["styled-components"],
+        "allowedVersions": [">5.2.0"]
       }
     ]
   }
