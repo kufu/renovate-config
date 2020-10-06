@@ -49,7 +49,7 @@
       },
       {
         "packageNames": ["styled-components"],
-        "allowedVersions": [">5.2.0"]
+        "allowedVersions": "!/5\\.2\\.0$/"
       }
     ]
   }
