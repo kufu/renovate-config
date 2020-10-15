@@ -50,6 +50,10 @@
       {
         "packageNames": ["styled-components"],
         "allowedVersions": "!/5\\.2\\.0$/"
+      },
+      {
+        "packageNames": ["react-pdf"],
+        "allowedVersions": "<5.0.0"
       }
     ]
   }
