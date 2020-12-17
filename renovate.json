@@ -54,6 +54,10 @@
       {
         "packageNames": ["query-string"],
         "allowedVersions": "<6.0.0"
+      },
+      {
+        "packageNames": ["husky"],
+        "allowedVersions": "<5.0.0"
       }
     ]
   }
