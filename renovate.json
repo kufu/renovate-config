@@ -58,6 +58,10 @@
       {
         "packageNames": ["husky"],
         "allowedVersions": "<5.0.0"
+      },
+      {
+        "packageNames": ["html-to-image"],
+        "allowedVersions": "<=0.1.1"
       }
     ]
   }
