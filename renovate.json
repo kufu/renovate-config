@@ -54,6 +54,13 @@
       {
         "matchPackageNames": ["query-string"],
         "allowedVersions": "<6.0.0"
+      {
+        "packageNames": ["html-to-image"],
+        "allowedVersions": "<=0.1.1"
+      },
+      {
+        "packageNames": ["i18n-iso-countries"],
+        "allowedVersions": "<6.0.0"
       }
     ]
   }
