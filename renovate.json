@@ -9,7 +9,7 @@
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
-      ":unpublishSafe",
+      "npm:unpublishSafe",
       "helpers:disableTypesNodeMajor"
     ],
     "schedule": "before 10am on Monday",
@@ -18,47 +18,42 @@
     "separateMinorPatch": true,
     "packageRules": [
       {
-        "depTypeList": [
+        "matchDepTypes": [
           "devDependencies"
         ],
-        "updateTypes": [
+        "matchUpdateTypes": [
           "patch"
         ],
         "automerge": true
       },
       {
         "groupName": "ESLint and Prettier",
-        "packageNames": [
+        "matchPackageNames": [
           "eslint",
           "prettier"
         ],
-        "packagePatterns": [
+        "matchPackagePatterns": [
           "^eslint-",
           "^prettier-"
         ]
       },
       {
         "groupName": "reg-suit",
-        "packageNames": [
+        "matchPackageNames": [
           "reg-suit",
           "storycap"
         ],
-        "packagePatterns": [
+        "matchPackagePatterns": [
           "^reg-"
         ]
       },
       {
-        "packageNames": ["react-pdf"],
+        "matchPackageNames": ["react-pdf"],
         "allowedVersions": "<5.0.0"
       },
       {
-        "packageNames": ["query-string"],
+        "matchPackageNames": ["query-string"],
         "allowedVersions": "<6.0.0"
-      },
-      {
-        "packageNames": ["husky"],
-        "allowedVersions": "<5.0.0"
-      },
       {
         "packageNames": ["html-to-image"],
         "allowedVersions": "<=0.1.1"
