@@ -54,6 +54,7 @@
       {
         "matchPackageNames": ["query-string"],
         "allowedVersions": "<6.0.0"
+      },
       {
         "packageNames": ["html-to-image"],
         "allowedVersions": "<=0.1.1"
