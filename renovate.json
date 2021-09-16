@@ -4,7 +4,8 @@
     "group:monorepos",
     "packages:stylelint",
     ":widenPeerDependencies",
-    ":label(renovate)"
+    ":label(renovate)",
+    ":semanticCommitScopeDisabled"
   ],
   "npm": {
     "extends": [
