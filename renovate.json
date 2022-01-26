@@ -47,22 +47,6 @@
         "matchPackagePatterns": [
           "^reg-"
         ]
-      },
-      {
-        "matchPackageNames": ["react-pdf"],
-        "allowedVersions": "<5.0.0"
-      },
-      {
-        "matchPackageNames": ["query-string"],
-        "allowedVersions": "<6.0.0"
-      },
-      {
-        "matchPackageNames": ["html-to-image"],
-        "allowedVersions": "<=0.1.1"
-      },
-      {
-        "matchPackageNames": ["i18n-iso-countries"],
-        "allowedVersions": "<6.0.0"
       }
     ]
   }
