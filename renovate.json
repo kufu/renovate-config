@@ -7,7 +7,7 @@
     ":label(renovate)",
     ":semanticCommitScopeDisabled"
   ],
-  "schedule": "after 8am before 10am on Monday",
+  "schedule": "before 10am on Monday",
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
