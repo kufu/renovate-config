@@ -49,7 +49,7 @@
         ]
       },
       {
-        "packageNames": ["rimraf"],
+        "matchPackageNames": ["rimraf"],
         "allowedVersions": "<4.0.0"
       }
     ]
