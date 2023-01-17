@@ -47,6 +47,10 @@
         "matchPackagePatterns": [
           "^reg-"
         ]
+      },
+      {
+        "packageNames": ["rimraf"],
+        "allowedVersions": "<4.0.0"
       }
     ]
   }
