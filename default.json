@@ -8,6 +8,8 @@
     ":semanticCommitScopeDisabled"
   ],
   "schedule": "after 8am before 5pm on Monday",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
