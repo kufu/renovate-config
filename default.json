@@ -7,9 +7,7 @@
     ":label(renovate)",
     ":semanticCommitScopeDisabled"
   ],
-  "schedule": "after 8am before 5pm on Monday",
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
+  "schedule": "after 8am and before 5pm",
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
