@@ -28,15 +28,8 @@
         "automerge": true
       },
       {
-        "groupName": "ESLint and Prettier",
-        "matchPackageNames": [
-          "eslint",
-          "prettier"
-        ],
-        "matchPackagePatterns": [
-          "^eslint-",
-          "^prettier-"
-        ]
+        "matchPackageNames": ["eslint"],
+        "enabled": false
       }
     ]
   }
