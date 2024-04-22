@@ -28,25 +28,9 @@
         "automerge": true
       },
       {
-        "groupName": "ESLint and Prettier",
-        "matchPackageNames": [
-          "eslint",
-          "prettier"
-        ],
-        "matchPackagePatterns": [
-          "^eslint-",
-          "^prettier-"
-        ]
-      },
-      {
-        "groupName": "reg-suit",
-        "matchPackageNames": [
-          "reg-suit",
-          "storycap"
-        ],
-        "matchPackagePatterns": [
-          "^reg-"
-        ]
+        "matchPackageNames": ["eslint"],
+        "enabled": false,
+        "description": "ESLint v9 は各種プラグインが対応してからバージョンアップの対象にする"
       }
     ]
   }
