@@ -37,16 +37,6 @@
           "^eslint-",
           "^prettier-"
         ]
-      },
-      {
-        "groupName": "reg-suit",
-        "matchPackageNames": [
-          "reg-suit",
-          "storycap"
-        ],
-        "matchPackagePatterns": [
-          "^reg-"
-        ]
       }
     ]
   }
