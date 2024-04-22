@@ -29,7 +29,8 @@
       },
       {
         "matchPackageNames": ["eslint"],
-        "enabled": false
+        "enabled": false,
+        "description": "ESLint v9 は各種プラグインが対応してからバージョンアップの対象にする"
       }
     ]
   }
