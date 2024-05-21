@@ -31,6 +31,12 @@
         "matchPackageNames": ["eslint"],
         "enabled": false,
         "description": "ESLint v9 は各種プラグインが対応してからバージョンアップの対象にする"
+      },
+      {
+        "matchPackageNames": ["cimg/node"],
+        "matchUpdateTypes": ["major"],
+        "enabled": false,
+        "description": "cimg/node は CI 上で Node のバージョンを固定した上でテストをしたいパターンがあるので、メジャーバージョンの更新はしない"
       }
     ]
   }
