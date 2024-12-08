@@ -37,6 +37,10 @@
         "matchUpdateTypes": ["major"],
         "enabled": false,
         "description": "cimg/node は CI 上で Node のバージョンを固定した上でテストをしたいパターンがあるので、メジャーバージョンの更新はしない"
+      },
+      {
+        "packageNames": ["ua-parser-js"],
+        "allowedVersions": "<2.0.0"
       }
     ]
   }
