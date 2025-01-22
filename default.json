@@ -5,7 +5,8 @@
     "packages:stylelint",
     ":widenPeerDependencies",
     ":label(renovate)",
-    ":semanticCommitScopeDisabled"
+    ":semanticCommitScopeDisabled",
+    ":configMigration"
   ],
   "schedule": "after 8am and before 5pm every weekday",
   "npm": {
