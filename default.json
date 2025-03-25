@@ -29,11 +29,6 @@
         "automerge": true
       },
       {
-        "matchPackageNames": ["eslint"],
-        "enabled": false,
-        "description": "ESLint v9 は各種プラグインが対応してからバージョンアップの対象にする"
-      },
-      {
         "matchPackageNames": ["cimg/node"],
         "matchUpdateTypes": ["major"],
         "enabled": false,
