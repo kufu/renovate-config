@@ -8,6 +8,7 @@
     ":semanticCommitScopeDisabled",
     ":configMigration"
   ],
+  "rebaseWhen": "never",
   "schedule": "after 8am and before 5pm every weekday",
   "npm": {
     "extends": [
