@@ -6,14 +6,14 @@
     ":widenPeerDependencies",
     ":label(renovate)",
     ":semanticCommitScopeDisabled",
-    ":configMigration"
+    ":configMigration",
+    "npm:unpublishSafe"
   ],
   "rebaseWhen": "never",
   "schedule": "after 8am and before 5pm every weekday",
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
-      "npm:unpublishSafe",
       "helpers:disableTypesNodeMajor"
     ],
     "rangeStrategy": "bump",
