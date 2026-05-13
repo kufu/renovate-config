@@ -21,6 +21,12 @@
     "separateMinorPatch": true,
     "packageRules": [
       {
+        "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
+        "internalChecksFilter": "strict",
+        "matchDatasources": ["npm"],
+        "minimumReleaseAge": "7 days"
+      },
+      {
         "matchDepTypes": [
           "devDependencies"
         ],
