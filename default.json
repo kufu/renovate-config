@@ -11,6 +11,19 @@
   ],
   "rebaseWhen": "never",
   "schedule": "after 8am and before 5pm every weekday",
+  "github-actions": {
+    "extends": [
+      "helpers:pinGitHubActionDigests",
+      ":noUnscheduledUpdates"
+    ],
+    "packageRules": [
+      {
+        "description": "GitHub Actionsのactionに7日間のクールダウンを設ける",
+        "matchManagers": ["github-actions"],
+        "minimumReleaseAge": "7 days"
+      }
+    ]
+  },
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
