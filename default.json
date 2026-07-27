@@ -5,6 +5,7 @@
     "group:stylelint",
     ":widenPeerDependencies",
     ":label(renovate)",
+    ":semanticCommits",
     ":semanticCommitScopeDisabled",
     ":configMigration",
     "security:minimumReleaseAgeNpm"
