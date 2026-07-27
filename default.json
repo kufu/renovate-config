@@ -2,7 +2,7 @@
   "extends": [
     ":timezone(Asia/Tokyo)",
     "group:monorepos",
-    "packages:stylelint",
+    "group:stylelint",
     ":widenPeerDependencies",
     ":label(renovate)",
     ":semanticCommitScopeDisabled",
