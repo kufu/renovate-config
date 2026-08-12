@@ -16,8 +16,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: lts/*
       - name: Validate renovate config
-        run: RENOVATE_CONFIG_FILE=default.json npx --package renovate -c 'renovate-config-validator'
+        run: |
+          docker run --rm --network none \
+            -v "$GITHUB_WORKSPACE:/work:ro" -w /work \
+            ghcr.io/renovatebot/renovate:43.263.7@sha256:961d3785fb5a27ecffe3f82b3a1764d320f42cea71311637722bc23c866ac4e3 \
+            renovate-config-validator default.json
