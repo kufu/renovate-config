@@ -24,7 +24,7 @@
       {
         "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
         "internalChecksFilter": "strict",
-        "matchDatasources": ["npm"],
+        "matchDatasources": ["npm", "rubygems"],
         "minimumReleaseAge": "7 days"
       },
       {
