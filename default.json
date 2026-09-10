@@ -12,6 +12,14 @@
   ],
   "rebaseWhen": "never",
   "schedule": "after 8am and before 5pm every weekday",
+  "packageRules": [
+    {
+      "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
+      "internalChecksFilter": "strict",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pinDigest"],
+      "minimumReleaseAge": "7 days"
+    }
+  ],
   "npm": {
     "extends": [
       ":noUnscheduledUpdates",
@@ -21,12 +29,6 @@
     "semanticCommitType": "chore",
     "separateMinorPatch": true,
     "packageRules": [
-      {
-        "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
-        "internalChecksFilter": "strict",
-        "matchDatasources": ["npm"],
-        "minimumReleaseAge": "7 days"
-      },
       {
         "matchDepTypes": [
           "devDependencies"
