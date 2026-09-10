@@ -16,7 +16,7 @@
     {
       "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
       "internalChecksFilter": "strict",
-      "matchDatasources": ["npm", "rubygems", "docker"],
+      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pinDigest"],
       "minimumReleaseAge": "7 days"
     }
   ],
