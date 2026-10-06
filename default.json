@@ -12,6 +12,9 @@
   ],
   "rebaseWhen": "never",
   "schedule": "after 8am and before 5pm every weekday",
+  "registryAliases": {
+    "mirror.gcr.io": "docker.io"
+  },
   "packageRules": [
     {
       "description": "minimumReleaseAgeを社内規定に沿って7 daysにセットする",
