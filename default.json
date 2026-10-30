@@ -2,6 +2,7 @@
   "extends": [
     ":timezone(Asia/Tokyo)",
     "group:monorepos",
+    "group:react",
     "group:stylelint",
     ":widenPeerDependencies",
     ":label(renovate)",
