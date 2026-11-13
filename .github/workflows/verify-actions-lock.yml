@@ -1,3 +1,7 @@
+# Verifies that every action referenced under .github/workflows is pinned
+# by the lockfile (.github/workflows/actions.lock) via `gh actions-lock --verify`.
+# Runs on pull requests and pushes to master, skipping when nothing under .github/ changed.
+# See https://gh.io/actions-lockfile
 name: Verify Actions lockfile
 
 on:
