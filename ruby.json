@@ -1,0 +1,51 @@
+{
+  "description": "Ruby のバージョンを .ruby-version・Dockerfile・Gemfile.lock・GitHub Actions でまとめて上げる。利用側の enabledManagers に ruby-version と custom.regex を含める",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Docker Hub のタグには releaseTimestamp が無く minimumReleaseAge で永久に pending になるため、Dockerfile の Ruby は ruby-version datasource で追跡する",
+      "managerFilePatterns": [
+        "/(^|/)Dockerfile$/"
+      ],
+      "matchStrings": [
+        "ARG RUBY_VERSION=(?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "ruby-version"
+    },
+    {
+      "customType": "regex",
+      "description": "Gemfile.lock の RUBY VERSION を .ruby-version と同じ版に上げる",
+      "managerFilePatterns": [
+        "/(^|/)Gemfile\\.lock$/"
+      ],
+      "matchStrings": [
+        "RUBY VERSION\\n\\s+ruby (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "ruby-version"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Dockerfile の Ruby は上の customManagers で追跡するので、Docker image としての更新は止める",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "ruby",
+        "docker.io/library/ruby",
+        "registry.docker.com/library/ruby"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "新しい Ruby は ruby/setup-ruby も上げないと CI で使えないため、1 つの PR にまとめる",
+      "groupName": "Ruby",
+      "matchPackageNames": [
+        "ruby",
+        "ruby/setup-ruby"
+      ]
+    }
+  ]
+}
