@@ -29,4 +29,30 @@ SmartHRのプロダクトが共通で継承するrenovate設定です。
 }
 ```
 
+### Ruby の版をまとめて上げる
+
+`.ruby-version`・Dockerfile・`Gemfile.lock` の Ruby と `ruby/setup-ruby` を、1 つの PR で上げられます。
+`ruby` preset を継承し、`enabledManagers` に `ruby-version` と `custom.regex` を含めてください。
+
+```json
+{
+  "extends": [
+    "github>kufu/renovate-config",
+    "github>kufu/renovate-config:ruby"
+  ],
+  "enabledManagers": ["dockerfile", "github-actions", "ruby-version", "custom.regex"]
+}
+```
+
+Dockerfile で `ARG` に Ruby の版を書いている場合は、`ARG` の直前に次のコメントを足してください。
+`FROM ruby:4.0.10-slim` のように `FROM` に直接書いている場合は不要です。
+
+```dockerfile
+# renovate: datasource=ruby-version depName=ruby
+ARG RUBY_VERSION=4.0.10
+```
+
+`Gemfile.lock` の `RUBY VERSION` は、Bundler 4.0.0 以降で書かれた patchlevel の無い形（例: `ruby 4.0.10`）だけを更新します。
+Bundler 2.7.x 以前で書かれた `ruby 3.3.6p108` の形は更新しないので、Bundler を 4.0.0 以降に上げてください。
+
 その他、共通設定を上書きしたい項目については [Configuration Options - Renovate Docs | Renovate Docs](https://docs.renovatebot.com/configuration-options/) を参照してください。
