@@ -56,4 +56,38 @@ ARG RUBY_VERSION=4.0.10
 `Gemfile.lock` の `RUBY VERSION` を更新するのは、Bundler 4.0.0 以降で書かれた patchlevel の無い形（例: `ruby 4.0.10`）だけです。
 Bundler 2.7.x 以前で書かれた `ruby 3.3.6p108` の形は更新しないので、Bundler を 4.0.0 以降に上げてください。
 
+### Node.js のバージョンをまとめて上げる
+
+`.node-version`・`.nvmrc`・Dockerfile・CircleCI・`package.json` の `engines.node` の Node.js を、1 つの PR で上げられます。
+`node` preset を継承し、`enabledManagers` に、Node.js のバージョンを書いている場所に合わせて次の manager を含めてください。
+
+| 書いている場所 | manager |
+| --- | --- |
+| `.node-version` | `nodenv` |
+| `.nvmrc` | `nvm` |
+| `package.json` の `engines.node` | `npm` |
+| Dockerfile の `FROM` | `dockerfile` |
+| Dockerfile の `ARG` | `custom.regex` |
+| `.circleci/config.yml` の image | `circleci` |
+
+```json
+{
+  "extends": [
+    "github>kufu/renovate-config",
+    "github>kufu/renovate-config:node"
+  ],
+  "enabledManagers": ["npm", "nodenv", "nvm", "dockerfile", "circleci", "custom.regex"]
+}
+```
+
+Dockerfile で `ARG` に Node.js のバージョンを書いている場合は、`ARG` の直前に次のコメントを足してください。
+`FROM node:24.11.1-alpine` のように `FROM` に直接書いている場合は不要です。
+
+```dockerfile
+# renovate: datasource=node-version depName=node
+ARG NODE_VERSION=24.11.1
+```
+
+docker image は `24.11.1-alpine` のように `x.y.z` で始まる tag だけを更新し、`-alpine` などの suffix は残します。`lts` や `24` のような tag は、この preset では扱いません。
+
 その他、共通設定を上書きしたい項目については [Configuration Options - Renovate Docs | Renovate Docs](https://docs.renovatebot.com/configuration-options/) を参照してください。
