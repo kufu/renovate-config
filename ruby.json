@@ -1,0 +1,53 @@
+{
+  "description": "Ruby のバージョンを .ruby-version・Dockerfile・Gemfile.lock・GitHub Actions でまとめて上げる。利用側の enabledManagers に ruby-version と custom.regex を含める",
+  "extends": [
+    "customManagers:dockerfileVersions"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Gemfile.lock の RUBY VERSION を .ruby-version と同じ版に上げる。patchlevel 付きの行は patchlevel が古いまま残るため対象外にする",
+      "managerFilePatterns": [
+        "/(^|/)Gemfile\\.lock$/"
+      ],
+      "matchStrings": [
+        "RUBY VERSION\\n\\s+ruby (?<currentValue>\\d+\\.\\d+\\.\\d+)\\n"
+      ],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "ruby-version"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Ruby の docker image も ruby-version datasource で更新する。Docker Hub のタグには releaseTimestamp が無く minimumReleaseAge で永久に pending になるため。Ruby group より前に置くこと",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "/(?:^|/)ruby$/",
+        "!rubylang/ruby",
+        "!docker.io/rubylang/ruby"
+      ],
+      "overrideDatasource": "ruby-version",
+      "overridePackageName": "ruby",
+      "versioning": "ruby",
+      "extractVersion": "^(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versionCompatibility": "^(?<version>\\d+\\.\\d+\\.\\d+)(?:-.+)?$"
+    },
+    {
+      "description": "新しい Ruby は ruby/setup-ruby も上げないと CI で使えないため、1 つの PR にまとめる",
+      "groupName": "Ruby",
+      "matchPackageNames": [
+        "ruby",
+        "ruby/setup-ruby"
+      ]
+    },
+    {
+      "description": "Ruby の minor 更新は別の PR にする。新しい minor が出た後も、今の minor の patch 更新の PR を作るため",
+      "matchPackageNames": [
+        "ruby"
+      ],
+      "separateMultipleMinor": true
+    }
+  ]
+}
