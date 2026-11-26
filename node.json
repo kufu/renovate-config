@@ -1,0 +1,35 @@
+{
+  "description": "Node.js のバージョンを .node-version・.nvmrc・Dockerfile・CircleCI・package.json の engines.node でまとめて上げる",
+  "extends": [
+    "customManagers:dockerfileVersions"
+  ],
+  "packageRules": [
+    {
+      "description": "Node.js の docker image を node-version datasource で更新する。docker datasource では minimumReleaseAge が Node.js のリリース日で判定されないため。Node.js group より前に置くこと",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "/(?:^|/)node$/",
+        "!ghcr.io/devcontainers/features/node"
+      ],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+(?:-.+)?$/",
+      "overrideDatasource": "node-version",
+      "overridePackageName": "node",
+      "versioning": "node",
+      "extractVersion": "^v?(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versionCompatibility": "^(?<version>[^-]+)(?:-.*)?$"
+    },
+    {
+      "description": "Node.js の更新を 1 つの PR にまとめる。Node.js は最新の minor にしか patch を出さないので、default.json が npm に設定した separateMinorPatch: true を false に揃える",
+      "groupName": "Node.js",
+      "matchDatasources": [
+        "node-version"
+      ],
+      "matchPackageNames": [
+        "node"
+      ],
+      "separateMinorPatch": false
+    }
+  ]
+}

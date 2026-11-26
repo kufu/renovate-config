@@ -21,4 +21,4 @@ jobs:
           docker run --rm --network none \
             -v "$GITHUB_WORKSPACE:/work:ro" -w /work \
             ghcr.io/renovatebot/renovate:43.263.7@sha256:961d3785fb5a27ecffe3f82b3a1764d320f42cea71311637722bc23c866ac4e3 \
-            renovate-config-validator default.json ruby.json
+            renovate-config-validator default.json ruby.json node.json
